@@ -1,41 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabourri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 18:50:47 by aabourri          #+#    #+#             */
-/*   Updated: 2023/04/20 18:37:31 by aabourri         ###   ########.fr       */
+/*   Created: 2023/01/24 13:03:29 by aabourri          #+#    #+#             */
+/*   Updated: 2023/01/24 18:40:07 by aabourri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
-	int	re;
-	int	pow;
-	int	i;
+	t_list	*tmp;
 
-	i = 0;
-	pow = 1;
-	re = 0;
-	while (ft_isspace(str[i]))
-		i++;
-	if (str[i] == '-' && str[i + 1] != '+')
+	tmp = *lst;
+	while (*lst != NULL)
 	{
-		i++;
-		pow = -1;
+		tmp = *lst;
+		*lst = (*lst)->next;
+		ft_lstdelone(tmp, del);
 	}
-	if (str[i] == '+')
-		i++;
-	while (48 <= str[i] && 57 >= str[i])
-		i++;
-	while (i > 0 && (48 <= str[--i] && 57 >= str[i]))
-	{
-		re += (int)(str[i] - 48) *pow;
-		pow *= 10;
-	}
-	return (re);
+	*lst = NULL;
 }

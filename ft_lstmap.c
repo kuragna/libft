@@ -1,41 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aabourri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 18:50:47 by aabourri          #+#    #+#             */
-/*   Updated: 2023/04/20 18:37:31 by aabourri         ###   ########.fr       */
+/*   Created: 2023/01/24 14:09:45 by aabourri          #+#    #+#             */
+/*   Updated: 2023/01/25 14:20:44 by aabourri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void*), void (*del)(void*))
 {
-	int	re;
-	int	pow;
-	int	i;
+	t_list	*new;
+	t_list	*node;
 
-	i = 0;
-	pow = 1;
-	re = 0;
-	while (ft_isspace(str[i]))
-		i++;
-	if (str[i] == '-' && str[i + 1] != '+')
+	new = NULL;
+	while (lst != NULL)
 	{
-		i++;
-		pow = -1;
+		node = ft_lstnew(f(lst->content));
+		if (!node)
+			ft_lstclear(&new, del);
+		ft_lstadd_back(&new, node);
+		lst = lst->next;
 	}
-	if (str[i] == '+')
-		i++;
-	while (48 <= str[i] && 57 >= str[i])
-		i++;
-	while (i > 0 && (48 <= str[--i] && 57 >= str[i]))
-	{
-		re += (int)(str[i] - 48) *pow;
-		pow *= 10;
-	}
-	return (re);
+	return (new);
 }
