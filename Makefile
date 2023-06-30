@@ -3,6 +3,12 @@ CC		   = gcc
 CFLAGS	   = -Wall -Werror -Wextra
 RM		   = rm -f
 
+SRC_PRINTF = ft_printf.c ft_puthex.c ft_putchar.c			\
+			 ft_putstr.c ft_putnbr.c ft_putunbr.c			\
+			 ft_putptr.c
+
+SRC_PRINTF := $(addprefix ft_printf/, $(SRC_PRINTF))
+
 SRC		   = ft_atoi.c ft_bzero.c ft_isalpha.c 				\
 			 ft_isprint.c ft_memset.c ft_strlen.c			\
 			 ft_isascii.c ft_memcmp.c ft_isascii.c		 	\
@@ -18,23 +24,25 @@ SRC		   = ft_atoi.c ft_bzero.c ft_isalpha.c 				\
 			  ft_lstnew.c ft_lstadd_front.c	ft_lstsize.c	\
 			 ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c	\
 			 ft_lstclear.c ft_lstiter.c ft_lstmap.c			\
-			 get_next_line.c ft_atol.c
+			 get_next_line.c ft_atol.c ft_free.c ft_strspn.c
+
+SRC			+= $(SRC_PRINTF)
 
 OBJ			= $(SRC:.c=.o)
 
-all: $(NAME)
+all: $(NAME) 
 
 %.o: %.c
 	$(CC) -c $(CFLAGS) $< -o $@
 
-$(NAME): $(OBJ)
-	ar -rcs $@ $^
+$(NAME): $(OBJ) 
+	ar -rcs $@ $(OBJ) 
 clean:
-	$(RM) $(OBJ) 
+	$(RM) $(OBJ)
 
 fclean: clean
 	$(RM) $(NAME)
 
-re: all fclean
+re: fclean all
 
-.PHONY: all clean fclean re 
+.PHONY: all clean fclean re
