@@ -6,7 +6,7 @@
 /*   By: aabourri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 16:17:00 by aabourri          #+#    #+#             */
-/*   Updated: 2023/02/08 16:02:06 by aabourri         ###   ########.fr       */
+/*   Updated: 2023/11/01 15:25:27 by aabourri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <limits.h>
+# include <stdint.h>
 
 void	ft_putchar(char c, int *i);
 void	ft_putunbr(unsigned int nb, int *i);
