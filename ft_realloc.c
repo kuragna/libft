@@ -14,14 +14,19 @@
 
 // TODO: UNFINISHED
 // TODO: needs more test
-void	*ft_realloc(void *ptr, size_t size)
+void	*ft_realloc(void *ptr, size_t len, size_t size)
 {
 	void	*new;
 
+	if (size == 0)
+		return (NULL);
 	new = malloc(size);
 	if (!new)
 		return (NULL);
-	ft_memcpy(new, ptr, size);
-	free(ptr);
+	if (ptr != NULL)
+	{
+		ft_memcpy(new, ptr, len);
+		free(ptr);
+	}
 	return (new);
 }
