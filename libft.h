@@ -6,7 +6,7 @@
 /*   By: aabourri <aabourri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 19:41:27 by aabourri          #+#    #+#             */
-/*   Updated: 2023/06/10 16:03:44 by aabourri         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:57:04 by aabourri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,6 @@ char	*ft_strdup(const char *s1);
 char	*ft_itoa(int n);
 char	**ft_split(char const *s, char c);
 char	*get_next_line(int fd);
+
+void	*ft_realloc(void *ptr, size_t len, size_t size);
 #endif 

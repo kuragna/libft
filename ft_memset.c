@@ -6,7 +6,7 @@
 /*   By: aabourri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/14 18:44:58 by aabourri          #+#    #+#             */
-/*   Updated: 2023/01/14 18:45:10 by aabourri         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:58:09 by aabourri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ void	*ft_memset(void *b, int c, size_t len)
 	{
 		*((unsigned char *)b + i) = c;
 		i++;
-	}	
+	}
 	return (b);
 }

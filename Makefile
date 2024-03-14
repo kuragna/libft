@@ -24,7 +24,8 @@ SRC		   = ft_atoi.c ft_bzero.c ft_isalpha.c 				\
 			  ft_lstnew.c ft_lstadd_front.c	ft_lstsize.c	\
 			 ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c	\
 			 ft_lstclear.c ft_lstiter.c ft_lstmap.c			\
-			 get_next_line.c ft_atol.c ft_free.c ft_strspn.c
+			 get_next_line.c ft_atol.c ft_free.c ft_strspn.c \
+			 ft_realloc.c 
 
 SRC			+= $(SRC_PRINTF)
 

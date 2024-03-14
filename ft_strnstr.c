@@ -6,7 +6,7 @@
 /*   By: aabourri <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:16:06 by aabourri          #+#    #+#             */
-/*   Updated: 2023/01/18 11:16:07 by aabourri         ###   ########.fr       */
+/*   Updated: 2024/03/14 11:58:33 by aabourri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,6 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 				return ((char *)haystack);
 		}
 		haystack++;
-	}	
+	}
 	return (NULL);
 }
